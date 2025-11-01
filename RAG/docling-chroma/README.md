@@ -1,5 +1,8 @@
 # Document RAG System with Docling & ChromaDB
 
+<img width="467" height="300" alt="image" src="https://github.com/user-attachments/assets/20933f0c-4cd4-4030-8d6a-183204eefcc7" />
+
+
 A comprehensive Retrieval-Augmented Generation (RAG) system that processes documents using Docling and stores embeddings in ChromaDB for intelligent question-answering via AI agents.
 
 ## 📚 What is This Project?
