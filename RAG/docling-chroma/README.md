@@ -30,7 +30,7 @@ document-rag/
 ├── document-processing-local.ipynb          # ⭐ MAIN: Process documents locally with Docling
 ├── document-processing-remote-server.ipynb  # Alternative: Process via Docling server
 ├── docling-simple.ipynb                     # Demo: Simple Docling usage example
-├── docker-compose.yml                       # Docker services (Docling + ChromaDB)
+├── docker compose.yml                       # Docker services (Docling + ChromaDB)
 ├── pyproject.toml                           # Project dependencies
 ├── uv.lock                                  # Lock file for reproducible builds
 ├── chromadb/                                # ChromaDB persistent storage
@@ -83,7 +83,7 @@ export ANONYMIZED_TELEMETRY=FALSE
 Start ChromaDB (and optionally Docling server):
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 This starts:
@@ -94,7 +94,7 @@ This starts:
 Verify services are running:
 
 ```bash
-docker-compose ps
+docker compose ps
 ```
 
 You should see `chromadb` with status "Up" (and optionally `docling-serve`).
@@ -244,10 +244,10 @@ print(results)
 
 ```bash
 # 1. Start Docker services (ChromaDB)
-docker-compose up -d
+docker compose up -d
 
 # 2. Verify ChromaDB is running
-docker-compose ps
+docker compose ps
 
 # 3. Start Jupyter for document processing
 uv run jupyter notebook
@@ -270,7 +270,7 @@ uv run jupyter notebook
 #    - Test queries directly
 
 # 7. When done:
-docker-compose down
+docker compose down
 ```
 
 ## 📊 Supported Document Formats
@@ -405,30 +405,30 @@ collection = chroma_client.get_or_create_collection(
 ### Start Services
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 ### Stop Services
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ### View Logs
 
 ```bash
 # All services
-docker-compose logs -f
+docker compose logs -f
 
 # Specific service
-docker-compose logs -f chromadb
-docker-compose logs -f docling-serve
+docker compose logs -f chromadb
+docker compose logs -f docling-serve
 ```
 
 ### Restart Services
 
 ```bash
-docker-compose restart
+docker compose restart
 ```
 
 ### Check ChromaDB Status
@@ -472,7 +472,7 @@ uv run python -m ipykernel install --user --name=document-rag
 lsof -i :5002  # ChromaDB
 lsof -i :5001  # Docling (optional)
 
-# Stop conflicting services or change ports in docker-compose.yml
+# Stop conflicting services or change ports in docker compose.yml
 ```
 
 ### Issue: ChromaDB connection refused
@@ -481,13 +481,13 @@ lsof -i :5001  # Docling (optional)
 
 ```bash
 # Ensure ChromaDB is running
-docker-compose ps
+docker compose ps
 
 # Restart ChromaDB
-docker-compose restart chromadb
+docker compose restart chromadb
 
 # Check logs
-docker-compose logs chromadb
+docker compose logs chromadb
 
 # Test connection
 curl http://localhost:5002/api/v1/heartbeat
@@ -523,7 +523,7 @@ python -c "from sentence_transformers import SentenceTransformer; SentenceTransf
 
 1. Verify MCP configuration in your AI client
 2. Restart your AI client after configuration changes
-3. Check that ChromaDB is running: `docker-compose ps`
+3. Check that ChromaDB is running: `docker compose ps`
 4. Test ChromaDB API: `http://localhost:5002/docs`
 
 ### Issue: AI agent says "I don't know" for obvious content
