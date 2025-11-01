@@ -113,10 +113,7 @@ To run any of the notebooks, use `uv run`:
 
 ```bash
 # Start Jupyter Lab
-uv run jupyter lab
-
-# Or start Jupyter Notebook
-uv run jupyter notebook
+uv run --with jupyter jupyter lab
 ```
 
 This automatically uses the project's virtual environment without manual activation.
@@ -126,8 +123,8 @@ This automatically uses the project's virtual environment without manual activat
 ### Step 1: Process and Ingest Documents (Local Processing - Recommended)
 
 ```bash
-# Open the local processing notebook
-uv run jupyter notebook document-processing-local.ipynb
+# Open the local processing notebook by running the following command:
+uv run --with jupyter jupyter lab
 ```
 
 **What it does:**
